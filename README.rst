@@ -45,3 +45,5 @@ If the search fails (i.e. a valid word isn't found) then the grip collapse is ro
 
 For the above grid, the algorithm looks at a total of 37696 paths across the grid, and finds the words
 'castle', 'cat' and 'weather'.
+
+The App will find all possible valid word paths in the grid - the user will still need to identify the correct word path that the game will accept.

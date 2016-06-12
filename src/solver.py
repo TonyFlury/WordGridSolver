@@ -69,6 +69,7 @@ class Grid(object):
             if length == 1:
                 path_count += 1
                 sys.stdout.write("\r{0} {1:>10} paths".format('\|-/'[path_count %4], path_count))
+                sys.stdout.flush()
                 yield current_path + [(x,y)]
             else:
                 for p in self._find_path_from(length-1, current_path+[(x,y)]):
@@ -207,12 +208,10 @@ if __name__ == "__main__":
 
     print("")
 
-    s = set()
+    s = sorted([w for w in g.find_words() if w != -1])
 
-    for w in g.find_words():
-        if w != -1:
-            if tuple(w) not in s:
-                s.add( tuple(w))
-
-    print("", end="\n")
-    print('\n'.join( str(item) for item in s ))
+    if s:
+        print("\nFound Solutions (in order) : ", end="\n")
+        print('\n'.join( ",".join(w for w in item) for item in s))
+    else:
+        print("\nNo Solutions Found")
