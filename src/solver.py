@@ -208,7 +208,7 @@ if __name__ == "__main__":
 
     print("")
 
-    s = sorted([w for w in g.find_words() if w != -1])
+    s = sorted(list(set(tuple(w) for w in g.find_words() if w != -1)))
 
     if s:
         print("\nFound Solutions (in order) : ", end="\n")
